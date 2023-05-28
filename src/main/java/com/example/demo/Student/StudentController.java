@@ -23,8 +23,8 @@ public class StudentController {
         studentService.addNewStudent(student);
     }
 
-    @DeleteMapping(path = "delete")
-    public void deleteStudent(@RequestBody Student student){
-        studentService.deleteStudent(student);
-    }
+//    @DeleteMapping(path = "delete")
+//    public void deleteStudent(@RequestBody Student student){
+//        studentService.deleteStudent(student);
+//    }
 }

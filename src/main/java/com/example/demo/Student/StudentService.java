@@ -28,7 +28,7 @@ public class StudentService {
 //        System.out.println(student);
     }
 
-    public void deleteStudent(Student student) {
-        studentRepository.delete(student);
-    }
+//    public void deleteStudent(Student student) {
+//        studentRepository.delete(student);
+//    }
 }
