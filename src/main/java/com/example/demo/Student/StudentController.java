@@ -3,14 +3,17 @@ package com.example.demo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/student")
 public class StudentController {
     @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
 
     @GetMapping()
@@ -23,8 +26,19 @@ public class StudentController {
         studentService.addNewStudent(student);
     }
 
-//    @DeleteMapping(path = "delete")
-//    public void deleteStudent(@RequestBody Student student){
-//        studentService.deleteStudent(student);
-//    }
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable("studentId ") Long id){
+        studentService.deleteStudent(id);
+    }
+
+    @PutMapping(path = "{studentId}")
+    public void UpdateStudent(@PathVariable("studentId") long id,
+                              @RequestParam(required = false) String name,
+                              @RequestParam(required = false) String email ){
+        studentService.updateStudent(id, name, email);
+    }
+
+
+
+
 }
